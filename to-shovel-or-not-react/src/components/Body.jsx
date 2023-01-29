@@ -12,9 +12,6 @@ const Body = () => {
       .catch(err => console.log(err))
   }, [])
 
-  //to be removed later
-  console.log('7dayforecast', weatherData)
-
   return (
     <div className="flex flex-col h-full bg-sky-800">
       <div className="flex flex-row place-content-around h-full px-96">
