@@ -12,15 +12,11 @@ const Body = () => {
       .catch(err => console.log(err))
   }, [])
 
-  //to be removed later
-  console.log('7dayforecast', weatherData)
-
   return (
     weatherData ? (
       <div>{JSON.stringify(weatherData)}</div>
     ) : (
-      // will be removed or replaced after testing
-      <div className='main'>hang on tight, we're loading up your forecast</div>
+      <div className='main'>hang on tight, we're checking to see if your forecast data exists</div>
     )
   )
 }
