@@ -2,13 +2,15 @@ import React from "react";
 
 export default function Header() {
   return (
-    <div className="container mx-auto bg-gray-200 rounded-xl shadow border p-8 m-10">
-      <p className="text-3xl text-gray-700 font-bold mb-5">
-        Welcome!
-      </p>
-      <p className="text-gray-500 text-lg">
-        React and Tailwind CSS in action
-      </p>
+    <div className="bg-sky-400 h-32 flex flex-row">
+      <div className="basis-1/4 flex items-center">
+        <h1 className="text-white font-logo text-7xl pl-5 drop-shadow-md">SaltyShovel</h1>
+      </div>
+      <span className="basis-3/4 flex flex-col items-center justify-center">
+        <p className="text-white font-sans font-bold text-lg">Where are you located?</p>
+        <input className="h-8 w-96 rounded-full text-center" placeholder="Postal Code"></input>
+      </span>
+      <span className="basis-1/4"/>
     </div>
   )
 }
