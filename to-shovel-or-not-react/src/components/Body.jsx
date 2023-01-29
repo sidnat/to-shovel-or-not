@@ -8,9 +8,8 @@ const Body = () => {
 
   useEffect(() => {
     sevenDayForecast()
-      .then((forecast) => {
-        setWeatherData(forecast)
-      })
+      .then(forecast => setWeatherData(forecast))
+      .catch(err => console.log(err))
   }, [])
 
   //to be removed later
