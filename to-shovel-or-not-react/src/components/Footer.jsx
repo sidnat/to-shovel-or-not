@@ -8,7 +8,7 @@ export default function Footer() {
         <span className="flex flex-col items-end pr-5">
           <h4 className="font-bold text-white text-xl">Sid Natarajan</h4>
           <h5 className="font-bold text-slate-700">
-            <a href="https://github.com/Sidnat">github/Sidnat</a>
+            <a href="https://github.com/sidnat">github/sidnat</a>
           </h5>
         </span>
         <img
@@ -24,7 +24,7 @@ export default function Footer() {
         <span className="flex flex-col items-start pl-5">
           <h4 className="font-bold text-white text-xl">Stefan Talbot</h4>
           <h5 className="font-bold text-slate-700">
-            <a href="https://github.com/Sidnat">github/TeaBizzy</a>
+            <a href="https://github.com/TeaBizzy">github/TeaBizzy</a>
           </h5>
         </span>
       </div>
