@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 export default function Header() {
+  // TODO: Move this state to the parent component.
   const [locationInput, setLocationInput] = useState('')
 
   return (
