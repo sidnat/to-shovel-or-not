@@ -16,12 +16,9 @@ const Body = () => {
   console.log('7dayforecast', weatherData)
 
   return (
-    weatherData ? (
-      <div>{JSON.stringify(weatherData)}</div>
-    ) : (
-      // will be removed or replaced after testing
-      <div className='main'>hang on tight, we're loading up your forecast</div>
-    )
+    <div className="flex flex-col h-full">
+
+    </div>
   )
 }
 
