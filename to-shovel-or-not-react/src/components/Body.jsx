@@ -17,7 +17,10 @@ const Body = () => {
 
   return (
     <div className="flex flex-col h-full">
-
+      <div className="flex flex-row">
+      {/* Weather Components Go Here */}
+      </div>
+      {/* Determination Component Goes Here */}
     </div>
   )
 }
