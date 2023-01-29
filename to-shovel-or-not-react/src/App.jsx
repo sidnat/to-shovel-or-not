@@ -1,12 +1,12 @@
 import Footer from './components/Footer';
 import Header from './components/Header';
-import MainBody from './components/MainBody';
+import Body from './components/Body';
 
 function App() {
   return (
     <>
       <Header />
-      <MainBody />
+      <Body />
       <Footer />
     </>
   );
