@@ -5,7 +5,7 @@ export default function Header() {
   const [locationInput, setLocationInput] = useState('')
 
   return (
-    <div className="bg-sky-400 h-32 flex flex-row">
+    <div className="bg-sky-400 h-40 flex flex-row">
       <span className="basis-1/4 flex items-center">
         <h1 className="text-white font-logo text-7xl pl-5 drop-shadow-md">SaltyShovel</h1>
       </span>
