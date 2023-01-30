@@ -14,16 +14,20 @@ export default function Body() {
       .catch(err => console.log(err))
   }, [])
 
+  // Creates the WeatherCard components.
+  function drawWeatherCards() {
+    if (!weatherData) return null
+    return weatherData.map((day, i) => {
+      return(
+        <WeatherCard key={i} date={(i === 0 ? 'Today' : day.date)} high={day.high} low={day.low} total_snow={day.total_snow} total_rain={day.total_rain}/>
+      );
+    })
+  }
+
   return (
     <div className="flex flex-col h-full bg-sky-800">
       <div className="flex flex-row place-content-around h-full px-96">
-        {weatherData && 
-        <>
-          <WeatherCard date={'Today'} high={weatherData[0].high} low={weatherData[0].low} total_snow={weatherData[0].total_snow} total_rain={weatherData[0].total_rain}/>
-          <WeatherCard date={weatherData[1].date} high={weatherData[1].high} low={weatherData[1].low} total_snow={weatherData[1].total_snow} total_rain={weatherData[1].total_rain}/>
-          <WeatherCard date={weatherData[2].date} high={weatherData[2].high} low={weatherData[2].low} total_snow={weatherData[2].total_snow} total_rain={weatherData[2].total_rain}/>
-        </>
-        }
+        {drawWeatherCards()}
       </div>
       {/* Determination Component Goes Here */}
     </div>
