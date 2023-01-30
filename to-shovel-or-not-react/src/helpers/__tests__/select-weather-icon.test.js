@@ -15,6 +15,11 @@ test('selectWeatherIcon returns the correct img url if there is only 1 valid cod
   expect(result).toBe('https://i.imgur.com/E85PFZI.png')
 })
 
+test('selectWeatherIcon returns empty string when given all invalid codes', () => {
+  const result = selectWeatherIcon([-1, 199, 420]);
+  expect(result).toBe('')
+})
+
 describe('selectWeatherIcon returns the img url for the most severe code', () => {
   test('it returns sunny icon when it is only sunny', () => {
     const sunny = selectWeatherIcon([0, 0, 0]);
