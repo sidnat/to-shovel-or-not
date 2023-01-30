@@ -19,7 +19,7 @@ export default function Body() {
     if (!weatherData) return null
     return weatherData.map((day, i) => {
       return(
-        <WeatherCard key={i} date={(i === 0 ? 'Today' : day.date)} high={day.high} low={day.low} total_snow={day.total_snow} total_rain={day.total_rain}/>
+        <WeatherCard key={i} date={(i === 0 ? 'Today' : day.date)} high={day.high} low={day.low} total_snow={day.total_snow} total_rain={day.total_rain} timeframes={day.Timeframes}/>
       );
     })
   }

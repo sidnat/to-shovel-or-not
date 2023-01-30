@@ -1,4 +1,5 @@
 import React from "react";
+import Chart from "./Chart";
 import { BsCloudSnow, BsSnow3, BsDroplet } from 'react-icons/bs'
 
 export default function WeatherCard(props) {
@@ -10,8 +11,8 @@ export default function WeatherCard(props) {
         <BsCloudSnow className="h-full w-1/3 py-3"/>
         <p className="text-3xl">{date}</p>
       </div>
-      <div className="bg-pink-500 w-full h-2/5 text-center">
-        CHART AREA
+      <div className=" w-full h-2/5 text-center">
+        <Chart data={timeframes}/>
       </div>
       <div className="flex flex-row h-1/6 place-content-around pt-3 text-center text-2xl">
         <span>
