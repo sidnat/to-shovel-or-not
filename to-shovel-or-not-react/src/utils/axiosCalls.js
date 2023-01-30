@@ -1,4 +1,5 @@
 import axios from "axios";
+import convertDateToWeekday from "../helpers/date-to-weekday";
 
 //hardcoded location example: Toronto
 const hardCodedLocation = '43.65,-79.38'
@@ -12,10 +13,13 @@ export const sevenDayForecast = (location) => {
     .then((forecastObj) => {
       const weekForecast = []
 
-      if (forecastObj.data.Days) {        
+      console.log("Wtf");
+
+      if (forecastObj.data.Days) {       
+        console.log(forecastObj.data.Days);
         for (let day of forecastObj.data.Days) {
           const eachDay = {
-            date: day.date,
+            date: convertDateToWeekday(day.date),
             high: day.temp_max_c,
             low: day.temp_min_c,
             total_snow: day.snow_total_mm,
@@ -43,7 +47,7 @@ export const sevenDayForecast = (location) => {
           weekForecast.push(eachDay)
         }
 
-        return weekForecast
+        return weekForecast.slice(1)
       }
 
       return null
