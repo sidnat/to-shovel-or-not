@@ -4,8 +4,6 @@ import { BsCloudSnow, BsSnow3, BsDroplet } from 'react-icons/bs'
 export default function WeatherCard(props) {
   const {date, high, low, total_snow, total_rain, timeframes} = props;
 
-  console.log(high, low, total_rain, total_snow);
-
   return (
     <div className="flex flex-col mt-6 w-1/6 h-5/6 p-5 text-white bg-sky-400 font-bold drop-shadow-md rounded-lg">
       <div className="flex flex-row place-content-between items-end py-3">
