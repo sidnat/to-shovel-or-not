@@ -13,10 +13,7 @@ export const sevenDayForecast = (location) => {
     .then((forecastObj) => {
       const weekForecast = []
 
-      console.log("Wtf");
-
       if (forecastObj.data.Days) {       
-        console.log(forecastObj.data.Days);
         for (let day of forecastObj.data.Days) {
           const eachDay = {
             date: convertDateToWeekday(day.date),
@@ -47,7 +44,7 @@ export const sevenDayForecast = (location) => {
           weekForecast.push(eachDay)
         }
 
-        return weekForecast.slice(1)
+        return weekForecast.slice(0, 3)
       }
 
       return null
