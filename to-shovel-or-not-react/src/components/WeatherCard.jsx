@@ -1,6 +1,7 @@
 import React from "react";
 import Chart from "./Chart";
 import { BsCloudSnow, BsSnow3, BsDroplet } from 'react-icons/bs'
+import selectWeatherIcon from "../helpers/select-weather-icon";
 
 export default function WeatherCard(props) {
   const {date, high, low, total_snow, total_rain, timeframes} = props;
@@ -8,7 +9,7 @@ export default function WeatherCard(props) {
   return (
     <div className="flex flex-col mt-6 w-1/6 h-5/6 p-5 text-white bg-sky-400 font-bold drop-shadow-md rounded-lg">
       <div className="flex flex-row place-content-between items-end py-3">
-        <BsCloudSnow className="h-full w-1/3 py-3"/>
+        <img src={selectWeatherIcon(timeframes.map(period => period.wx_code))} alt="weather icon" className="w-1/2 rounded-full border-4 border-sky-800"/>
         <p className="text-3xl">{date}</p>
       </div>
       <div className=" w-full h-2/5 text-center">
