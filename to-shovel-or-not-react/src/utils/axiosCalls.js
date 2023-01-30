@@ -34,7 +34,8 @@ export const sevenDayForecast = (location) => {
                 feelslike_c: timeSegment.feelslike_c,
                 rain_mm: timeSegment.rain_mm,
                 snow_mm: timeSegment.snow_mm,
-                snow_accum_cm: timeSegment.snow_accum_cm
+                snow_accum_cm: timeSegment.snow_accum_cm,
+                wx_code: timeSegment.wx_code
               }
 
               eachDay.Timeframes.push(eachTimeframe)
