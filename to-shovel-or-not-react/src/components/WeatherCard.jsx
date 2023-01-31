@@ -1,6 +1,6 @@
 import React from "react";
 import Chart from "./Chart";
-import { BsCloudSnow, BsSnow3, BsDroplet } from 'react-icons/bs'
+import { BsSnow3, BsDroplet } from 'react-icons/bs';
 import selectWeatherIcon from "../helpers/select-weather-icon";
 
 export default function WeatherCard(props) {
