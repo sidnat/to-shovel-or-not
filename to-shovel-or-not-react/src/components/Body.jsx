@@ -21,7 +21,7 @@ export default function Body(props) {
 
     return weatherData.map((day, i) => {
       return (
-        <Determination key={i} high={day.high} low={day.low} total_snow={day.total_snow} total_rain={day.total_rain} />
+        <Determination key={i} low={day.low} total_snow={day.total_snow} total_rain={day.total_rain} />
       )
     })
 

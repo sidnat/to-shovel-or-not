@@ -4,7 +4,7 @@ import React from "react";
 //"you will have to shovel today, approx between the hours of x and y"
 
 const Determination = (props) => {
-  const { high, low, total_snow, total_rain } = props;
+  const { low, total_snow, total_rain } = props;
 
   // total snow accumulation is > 30mm, shovel.
   if (total_snow > 30) {

@@ -6,9 +6,9 @@ const getLongLat = (locationInput) => {
     .then((res) => {
       const coordinates = [res.data.data[0].latitude, res.data.data[0].longitude].join(',')
 
-      const label = res.data.data[0].label
+      const location = res.data.data[0].label
 
-      return [coordinates, label]
+      return {coordinates, location}
     })
     .catch((err) => { 
       console.log(Error(err))
