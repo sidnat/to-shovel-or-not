@@ -59,6 +59,9 @@ const threeDayForecast = (location) => {
 
       return null
     })
+    .catch((error) => {
+      console.log(error)
+    })
 }
 
 module.exports = { threeDayForecast }
