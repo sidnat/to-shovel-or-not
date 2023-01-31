@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import { getLongLatAndLabel } from "../utils/axiosCalls";
 
 export default function Header(props) {
-  const { onSubmit, label } = props;
+  const { onSubmit, location } = props;
   const [locationInput, setLocationInput] = useState('')
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    const coordinateData = await getLongLatAndLabel(locationInput)
-    onSubmit(coordinateData[0], coordinateData[1])
+    getLongLatAndLabel(locationInput)
+      .then(locationData => {
+        onSubmit(locationData.coordinates, locationData.location)
+        setLocationInput('')
+      })
   }
 
   return (
@@ -18,7 +21,7 @@ export default function Header(props) {
       </span>
       <div className="basis-3/4 flex flex-col items-center justify-center">
         <p className="text-white font-sans font-bold text-lg">Where are you located?</p>
-        <p className="text-white font-sans font-bold text-lg">Current Location: {label}</p>
+        <p className="text-white font-sans font-bold text-lg">Current Location: {location}</p>
         <form onSubmit={(e) => handleSubmit(e)}>
           <input 
             className="h-8 w-96 rounded-full text-center border-b-4" 

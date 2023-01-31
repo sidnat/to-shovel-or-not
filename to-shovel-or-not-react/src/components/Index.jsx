@@ -7,23 +7,23 @@ import { useCookies } from 'react-cookie';
 
 export default function Index() {
   const [weatherData, setWeatherData] = useState(null)
-  const [cookies, setCookie] = useCookies(['location', 'label']);
+  const [cookies, setCookie] = useCookies(['coordinates', 'location']);
 
-  const onSubmit = (location, label) => {
+  const onSubmit = (coordinates, location) => {
+    setCookie('coordinates', coordinates, { path: '/' })
     setCookie('location', location, { path: '/' })
-    setCookie('label', label, { path: '/' })
   }
 
   useEffect(() => {
-    threeDayForecast(cookies.location)
+    threeDayForecast(cookies.coordinates)
       .then(forecast => setWeatherData(forecast))
       .catch(err => console.log(Error(err)))
-  }, [cookies.location])
+  }, [cookies.coordinates])
 
 
   return (
     <div className='flex flex-col' style={{height: '100vh'}}>
-      <Header onSubmit={onSubmit} label={cookies.label}/>
+      <Header onSubmit={onSubmit} location={cookies.location}/>
       <Body weatherData={weatherData}/>
       <Footer />
     </div>
