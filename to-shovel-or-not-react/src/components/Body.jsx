@@ -1,6 +1,7 @@
 import React from "react";
 import WeatherCard from "./WeatherCard";
 import Determination from "./Determination";
+import groupWeatherInPairs from "../selectors/group-weather-in-pairs";
 
 export default function Body(props) {
   const { weatherData } = props;
@@ -8,23 +9,22 @@ export default function Body(props) {
   // Creates the WeatherCard components.
   function drawWeatherCards() {
     if (!weatherData) return null
-    return weatherData.map((day, i) => {
-      return (
-        <WeatherCard key={i} date={(i === 0 ? 'Today' : day.date)} high={day.high} low={day.low} total_snow={day.total_snow} total_rain={day.total_rain} timeframes={day.Timeframes} />
-      );
-    })
+    return weatherData
+      .map((day, i) => 
+        <WeatherCard
+          key={i} 
+          date={(i === 0 ? 'Today' : day.date)} 
+          high={day.high} low={day.low} 
+          total_snow={day.total_snow} 
+          total_rain={day.total_rain} 
+          timeframes={day.Timeframes} 
+        />)
+      .slice(0,3)
   }
 
   // Creates Determination components
   const drawDeterminations = () => {
-    if (!weatherData) return null
-
-    return weatherData.map((day, i) => {
-      return (
-        <Determination key={i} low={day.low} total_snow={day.total_snow} total_rain={day.total_rain} />
-      )
-    })
-
+    return weatherData ? groupWeatherInPairs(weatherData).map((pair, i) => <Determination key={i} weathers={pair} /> ) : null;
   }
 
   return (

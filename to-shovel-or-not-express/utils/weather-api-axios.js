@@ -54,7 +54,7 @@ const threeDayForecast = (location) => {
         }
 
         // returns today + next 2 days
-        return weekForecast.slice(1,4)
+        return weekForecast.slice(1,5)
       }
 
       return null
