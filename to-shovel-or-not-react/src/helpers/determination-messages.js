@@ -7,7 +7,7 @@ const messages = {
 }
 
 // Returns the appropriate message.
-export default function selectRandomDeterminationMessage(status) {
+export default function selectRandMessage(status) {
   const choices = messages[`${status}`]
   return choices[Math.floor(Math.random() * choices.length)]
 }
