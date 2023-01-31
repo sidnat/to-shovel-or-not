@@ -2,10 +2,11 @@ import axios from "axios";
 import convertDateToWeekday from "../helpers/date-to-weekday";
 
 //hardcoded location example: Toronto
-const hardCodedLocation = '43.65,-79.38'
+const defaultLocation = '43.65,-79.38'
 
 export const sevenDayForecast = (location) => {
-  return axios.get(`http://api.weatherunlocked.com/api/forecast/${hardCodedLocation}?app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`, {
+  location = location ? location : defaultLocation
+  return axios.get(`http://api.weatherunlocked.com/api/forecast/${location}?app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`, {
     headers: {
       'Accept': 'application/json',
     }
