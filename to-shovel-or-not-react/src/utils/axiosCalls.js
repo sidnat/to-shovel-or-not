@@ -4,8 +4,10 @@ import convertDateToWeekday from "../helpers/date-to-weekday";
 //hardcoded location example: Toronto
 const defaultLocation = '43.65,-79.38'
 
+// will be moved to express backend in order to hide API key and ID
 export const sevenDayForecast = (location) => {
   location = location ? location : defaultLocation
+
   return axios.get(`http://api.weatherunlocked.com/api/forecast/${location}?app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`, {
     headers: {
       'Accept': 'application/json',
@@ -29,14 +31,14 @@ export const sevenDayForecast = (location) => {
             for (let timeSegment of day.Timeframes) {
               const eachTimeframe = {
                 time: timeSegment.time,
+                wx_code: timeSegment.wx_code,
                 weather_desc: timeSegment.wx_desc,
                 weather_icon: timeSegment.wx_icon,
                 temp_c: timeSegment.temp_c,
                 feelslike_c: timeSegment.feelslike_c,
                 rain_mm: timeSegment.rain_mm,
                 snow_mm: timeSegment.snow_mm,
-                snow_accum_cm: timeSegment.snow_accum_cm,
-                wx_code: timeSegment.wx_code
+                snow_accum_mm: timeSegment.snow_accum_cm * 10
               }
 
               eachDay.Timeframes.push(eachTimeframe)
