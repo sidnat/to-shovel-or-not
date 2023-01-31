@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { sevenDayForecast } from "../utils/axiosCalls";
+import { threeDayForecast } from "../utils/axiosCalls";
 
 export default function Header(props) {
   const { onSubmit } = props;
