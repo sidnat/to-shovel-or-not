@@ -2,6 +2,7 @@ import React from "react";
 import WeatherCard from "./WeatherCard";
 import Determination from "./Determination";
 import groupWeatherInPairs from "../selectors/group-weather-in-pairs";
+import determineOutcome from "../helpers/determine-outcome";
 
 export default function Body(props) {
   const { weatherData } = props;
@@ -24,7 +25,10 @@ export default function Body(props) {
 
   // Creates Determination components
   const drawDeterminations = () => {
-    return weatherData ? groupWeatherInPairs(weatherData).map((pair, i) => <Determination key={i} weathers={pair} /> ) : null;
+    return weatherData ? 
+      groupWeatherInPairs(weatherData)
+        .map((pair, i) => <Determination key={i} status={determineOutcome(pair)} /> ) 
+      : null;
   }
 
   return (
