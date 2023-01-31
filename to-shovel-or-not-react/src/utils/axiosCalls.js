@@ -15,3 +15,14 @@ export const threeDayForecast = (location) => {
       return null
     })
 }
+
+export const getLongLatAndLabel = (locationInput) => {
+  return axios.get(`http://localhost:3003/getLongLat?locationInput=${locationInput}`)
+  .then((longLat) => {
+    return longLat.data
+  })
+  .catch((error) => {
+    console.log(error)
+    return null
+  })
+}
