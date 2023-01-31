@@ -1,18 +1,8 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { sevenDayForecast } from "../utils/axiosCalls";
 import WeatherCard from "./WeatherCard";
 
-export default function Body() {
-  const [weatherData, setWeatherData] = useState(null)
-
-  useEffect(() => {
-    sevenDayForecast()
-      .then(forecast => {
-        setWeatherData(forecast)
-      })
-      .catch(err => console.log(err))
-  }, [])
+export default function Body(props) {
+  const { weatherData } = props;
 
   // Creates the WeatherCard components.
   function drawWeatherCards() {
