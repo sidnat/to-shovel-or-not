@@ -1,8 +1,11 @@
 import Index from './components/Index';
+import { CookiesProvider } from 'react-cookie';
 
 function App() {
   return (
-    <Index />
+    <CookiesProvider>
+      <Index />
+    </CookiesProvider>
   );
 }
 
