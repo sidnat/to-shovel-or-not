@@ -32,7 +32,7 @@ export default function Body(props) {
       <div className="flex flex-row place-content-around h-full px-96">
         {drawWeatherCards()}
       </div>
-      <div className="flex flex-row place-content-around h-full px-96 text-white font-sans font-bold text-lg">
+      <div className="flex flex-row place-content-around px-96 text-white font-sans font-bold text-lg">
         {drawDeterminations()}
       </div>
     </div>
