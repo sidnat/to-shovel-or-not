@@ -1,14 +1,9 @@
-import Footer from './components/Footer';
-import Header from './components/Header';
-import Body from './components/Body';
+import Index from './components/Index';
+
 
 function App() {
   return (
-    <div className='flex flex-col' style={{height: '100vh'}}>
-      <Header />
-      <Body />
-      <Footer />
-    </div>
+    <Index />
   );
 }
 
