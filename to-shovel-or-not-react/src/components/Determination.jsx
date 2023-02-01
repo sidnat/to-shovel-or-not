@@ -3,9 +3,6 @@ import selectRandMessage from "../helpers/determination-messages";
 import { TbShovel } from 'react-icons/tb';
 import { FaUmbrellaBeach } from 'react-icons/fa';
 
-// make time specific determination using Timeframe data
-//"you will have to shovel today, approx between the hours of x and y"
-
 const Determination = (props) => {
   const { status } = props;
 
