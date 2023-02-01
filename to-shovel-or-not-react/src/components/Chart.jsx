@@ -15,9 +15,9 @@ export default function Chart(props) {
           }}>
           <Legend verticalAlign="top" height={32} align={"right"} iconType={"circle"}/>
           <YAxis />
-          <XAxis tick={false}/>
-          <Area name="Snow Accum mm" type="monotone" dataKey="snow_mm" stackId="1" stroke="#FFFFFF" fill="#FFFFFF" />
-          <Area name="Rain mm" type="monotone" dataKey="rain_mm" stackId="1" stroke="#075985" fill="#075985" />
+          <XAxis dataKey="time" />
+          <Area name="Snow (mm)" type="monotone" dataKey="snow_mm" stackId="1" stroke="#FFFFFF" fill="#FFFFFF" />
+          <Area name="Rain (mm)" type="monotone" dataKey="rain_mm" stackId="1" stroke="#075985" fill="#075985" />
         </AreaChart>
       </ResponsiveContainer>
   )
