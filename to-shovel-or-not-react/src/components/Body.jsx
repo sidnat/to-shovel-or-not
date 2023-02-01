@@ -33,10 +33,10 @@ export default function Body(props) {
 
   return (
     <div className="flex flex-col h-full bg-sky-800">
-      <div className="flex flex-row place-content-around h-full px-96">
+      <div className="flex flex-row h-2/3 py-4 justify-center">
         {drawWeatherCards()}
       </div>
-      <div className="flex flex-row place-content-around px-96 text-white font-sans font-bold text-lg">
+      <div className="flex flex-row h-1/3 w-px-96 pb-4 justify-center text-white font-sans font-bold text-lg">
         {drawDeterminations()}
       </div>
     </div>
