@@ -1,6 +1,13 @@
 # Salty Shovel
 
-Salty Shovel is a site designed to lets a User know if they need to Shovel and/or Salt. Salty Shovel displays weather data for Toronto, Canada as default, Salty Shovel also takes in user provided location data in the form of a Postal Code, City (if there are no global duplicates), and if there are duplicates then City plus an extra parameter like State, Province, Country etc. The user inputted location data is sent to the backend, it is first processed by the geocoder API to be formatted into longitude and latitude coordinates, then the coordinates are sent to the weather API to retrieve weather forecast data for Today, Tomorrow, and the Day after tomorrow. Once the data has been digested, Salty Shovel informs the user whether or not they need to Shovel, or Salt, or Shovel AND Salt! and better yet, it tells them if they can kick and and relax with a warm cup of hot chocolate!
+Salty Shovel is a site designed to lets a User know if they need to Shovel and/or Salt. Salty Shovel displays weather data for Toronto, Canada as default.
+
+Salty Shovel also takes in user provided location data in the form of:
+- a Postal Code
+- City (if there are no global duplicates)
+- if there are duplicate cities, then enter City plus an extra parameter like State, Province, Country etc.
+
+The user inputted location data is sent to the backend, it is first processed by the geocoder API to be formatted into longitude and latitude coordinates, then the coordinates are sent to the weather API to retrieve weather forecast data for Today, Tomorrow, and the Day after tomorrow. Once the data has been digested, Salty Shovel informs the user whether or not they need to Shovel, or Salt, or Shovel AND Salt! and better yet, it tells them if they can kick and and relax with a warm cup of hot chocolate!
 
 ---
 
@@ -17,8 +24,8 @@ Salty Shovel is a site designed to lets a User know if they need to Shovel and/o
  The user can enter a new location to see weather data relevant to them. using the following forms:
  - Postal Code
  - City (if there are no global duplicates)
- and if there are duplicates, then:
- - City plus an extra parameter like State, Province, Country etc.
+ - if there are duplicate cities, then enter City plus an extra parameter like State, Province, Country etc.
+
 
 ![User Location weather page](to-shovel-or-not-react/public/images/userlocation.png)
 
