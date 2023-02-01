@@ -10,12 +10,15 @@ export default function Body(props) {
   // Creates the WeatherCard components.
   function drawWeatherCards() {
     if (!weatherData) return null
+    
     return weatherData
       .map((day, i) => 
         <WeatherCard
           key={i} 
-          date={(i === 0 ? 'Today' : day.date)} 
-          high={day.high} low={day.low} 
+          date={(i === 0 ? 'Today' : day.date)}
+          format_date={day.format_date}
+          high={day.high}
+          low={day.low} 
           total_snow={day.total_snow} 
           total_rain={day.total_rain} 
           timeframes={day.Timeframes} 
