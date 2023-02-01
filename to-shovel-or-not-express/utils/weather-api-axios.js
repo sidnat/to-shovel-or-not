@@ -2,12 +2,12 @@ const axios = require('axios')
 const { convertDateToWeekday } = require('./date-to-weekday')
 require('dotenv').config()
 
-//hardcoded location example: Toronto
+// hardcoded location example: Toronto
 const defaultLocation = '43.65,-79.38'
 
 const threeDayForecast = (location) => {
+  // if no location provided, load default
   location = location ? location : defaultLocation
-
   // axios call to weather forecast api
   return axios.get(`http://api.weatherunlocked.com/api/forecast/${location}?app_id=${process.env.REACT_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`, {
     headers: {
@@ -17,6 +17,7 @@ const threeDayForecast = (location) => {
     .then((forecastObj) => {
       const weekForecast = []
 
+      // iterates through API data, filters and returns only required data
       if (forecastObj.data.Days) {
         for (let day of forecastObj.data.Days) {
           const eachDay = {
@@ -29,33 +30,31 @@ const threeDayForecast = (location) => {
             Timeframes: []
           }
 
+          // iterates through nested timeframe data, filters and returns only required data
           if (day.Timeframes) {
-            let snow_accum_mm = 0
             for (let timeSegment of day.Timeframes) {
-              // converts snow accumulation from cm to mm
-              snow_accum_mm += timeSegment.snow_mm
+
+              // formats time 300 to 03:00
+              let time = timeSegment.time.toString()
+              if (time.length < 4) {
+                time = `0${time}`
+              }
+              const formattedTime = `${time[0]}${time[1]}:${time[2]}${time[3]}`
+
               const eachTimeframe = {
-                time: timeSegment.time,
-                weather_desc: timeSegment.wx_desc,
+                time: formattedTime,
                 wx_code: timeSegment.wx_code,
-                weather_icon: timeSegment.wx_icon,
-                temp_c: timeSegment.temp_c,
-                feelslike_c: timeSegment.feelslike_c,
                 rain_mm: timeSegment.rain_mm,
-                snow_mm: timeSegment.snow_mm,
-                snow_accum_mm: snow_accum_mm
+                snow_mm: timeSegment.snow_mm
               }
               eachDay.Timeframes.push(eachTimeframe)
             }
           }
-
           weekForecast.push(eachDay)
         }
-
-        // returns today + next 2 days
-        return weekForecast.slice(1,5)
+        // returns today + 3 days. last day is for determination logic, not to be shown as weather card
+        return weekForecast.slice(1, 5)
       }
-
       return null
     })
     .catch((error) => {
