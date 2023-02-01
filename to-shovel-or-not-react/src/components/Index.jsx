@@ -14,6 +14,7 @@ export default function Index() {
     setCookie('location', location, { path: '/' })
   }
 
+  // gets weather data for longitude and latitude
   useEffect(() => {
     threeDayForecast(cookies.coordinates)
       .then(forecast => setWeatherData(forecast))
@@ -23,7 +24,7 @@ export default function Index() {
 
   return (
     <div className='flex flex-col' style={{height: '100vh'}}>
-      <Header onSubmit={onSubmit} location={cookies.location}/>
+      <Header onSubmit={onSubmit} locationName={cookies.location}/>
       <Body weatherData={weatherData}/>
       <Footer />
     </div>

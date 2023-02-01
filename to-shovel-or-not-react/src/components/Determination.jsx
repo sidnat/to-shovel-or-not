@@ -1,39 +1,17 @@
-import React from "react";
-
-// make time specific determination using Timeframe data
-//"you will have to shovel today, approx between the hours of x and y"
+import React, { useState } from "react";
+import selectRandMessage from "../helpers/determination-messages";
+import { TbShovel } from 'react-icons/tb';
+import { FaUmbrellaBeach } from 'react-icons/fa';
 
 const Determination = (props) => {
-  const { low, total_snow, total_rain } = props;
+  const { status } = props;
 
-  // total snow accumulation is > 30mm, shovel.
-  if (total_snow > 30) {
-    return (
-      <div>SHOVEL!</div>
-    )
-  }
-
-  // snowfall > 1cm and tempurature goes from > -1 to < -1, Salt!
-  if (total_snow > 10 && low < 0) {
-    return (
-      <div>Salt!</div>
-    )
-  }
-
-  // When there is any rain and tempurature is or will be < 1, Salt.
-  if (total_rain && low < 1) {
-    return (
-      <div>Salt!</div>
-    )
-  }
-
-  // do we really need to inform the user they don't need to shovel?
-  // total snow is < 30mm and temperature is > 0, don't need to shovel.
-  if (total_snow < 30 && low > 0) {
-    return (
-      <div>You don't need to shovel</div>
-    )
-  }
+  return (
+    <div className="flex flex-col items-center place-content-between bg-sky-400 rounded-md h-48 w-96 p-4 drop-shadow-md mx-4">
+      <span className="text-center">{selectRandMessage(status)}</span>
+      {status > 0 ? <TbShovel className="h-24 w-24 rounded-full border-slate-800 border-4"/> : <FaUmbrellaBeach className="h-24 w-24 rounded-full border-slate-800 border-4"/>}
+    </div>
+  )
 }
 
 export default Determination

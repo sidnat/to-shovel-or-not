@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { getLongLatAndLabel } from "../utils/axiosCalls";
 
 export default function Header(props) {
-  const { onSubmit, location } = props;
+  const { onSubmit, locationName } = props;
   const [locationInput, setLocationInput] = useState('')
+  const [headerLocation, setHeaderLocation] = useState('Toronto, Canada')
 
+  // updates Weather For: "Location"
+  useEffect(() => {
+    if (locationName) {
+      setHeaderLocation(locationName)
+    }
+  }, [locationName])
+
+  // handles user submitted location
   const handleSubmit = (e) => {
     e.preventDefault()
+    // axios call function to backend to retrieve coordinates and location label (Toronto, ON, Canada)
     getLongLatAndLabel(locationInput)
       .then(locationData => {
+        // sends returned axios call location data to onSubmit prop function which updates cookies
         onSubmit(locationData.coordinates, locationData.location)
         setLocationInput('')
       })
@@ -21,17 +32,17 @@ export default function Header(props) {
       </span>
       <div className="basis-3/4 flex flex-col items-center justify-center">
         <p className="text-white font-sans font-bold text-lg">Where are you located?</p>
-        <p className="text-white font-sans font-bold text-lg">Current Location: {location}</p>
         <form onSubmit={(e) => handleSubmit(e)}>
-          <input 
-            className="h-8 w-96 rounded-full text-center border-b-4" 
-            placeholder="Postal Code" 
-            onChange={e => setLocationInput(e.target.value)} 
+          <input
+            className="h-8 w-96 rounded-full text-center border-b-4"
+            placeholder="Postal Code, or City and Country"
+            onChange={e => setLocationInput(e.target.value)}
             value={locationInput}>
           </input>
         </form>
+        <p className="text-white font-sans font-bold text-lg">Weather for: {headerLocation}</p>
       </div>
-      <span className="basis-1/4"/>
+      <span className="basis-1/4" />
     </div>
   )
 }
