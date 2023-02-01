@@ -10,7 +10,7 @@ Salty Shovel is a site designed to lets a User know if they need to Shovel and/o
  
  The home page displays Toronto, Canada as the default weather data.
 
-![The landing page](to-shovel-or-not-react/public/landing.png)
+![The landing page](to-shovel-or-not-react/public/images/landing.png)
 
 ### User Location Page
 
@@ -20,7 +20,7 @@ Salty Shovel is a site designed to lets a User know if they need to Shovel and/o
  and if there are duplicates, then:
  - City plus an extra parameter like State, Province, Country etc.
 
-![User Location weather page](to-shovel-or-not-react/public/userlocation.png)
+![User Location weather page](to-shovel-or-not-react/public/images/userlocation.png)
 
 ### Weather Card Components
 
@@ -31,13 +31,13 @@ Salty Shovel is a site designed to lets a User know if they need to Shovel and/o
  - Daily High and Daily Low temperatures in Celsius
  - Daily Total Rainfall and Snowfall in milimeters 
 
-![Weather Card](to-shovel-or-not-react/public/weathercard.png)
+![Weather Card](to-shovel-or-not-react/public/images/weathercard.png)
 
  The Determination messages informs the user what they need to do:
 
-![Weather Card](to-shovel-or-not-react/public/shovel.png)
-![Weather Card](to-shovel-or-not-react/public/shovelandsalt.png)
-![Weather Card](to-shovel-or-not-react/public/relax.png)
+![Weather Card](to-shovel-or-not-react/public/images/shovel.png)
+![Weather Card](to-shovel-or-not-react/public/images/shovelandsalt.png)
+![Weather Card](to-shovel-or-not-react/public/images/relax.png)
 
 ---
 
