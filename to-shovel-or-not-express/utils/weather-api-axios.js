@@ -30,10 +30,10 @@ const threeDayForecast = (location) => {
           }
 
           if (day.Timeframes) {
+            let snow_accum_mm = 0
             for (let timeSegment of day.Timeframes) {
               // converts snow accumulation from cm to mm
-              const snow_accum_mm = timeSegment.snow_accum_cm * 10;
-
+              snow_accum_mm += timeSegment.snow_mm
               const eachTimeframe = {
                 time: timeSegment.time,
                 weather_desc: timeSegment.wx_desc,
@@ -45,7 +45,6 @@ const threeDayForecast = (location) => {
                 snow_mm: timeSegment.snow_mm,
                 snow_accum_mm: snow_accum_mm
               }
-
               eachDay.Timeframes.push(eachTimeframe)
             }
           }
