@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import selectRandMessage from "../helpers/determination-messages";
 import { TbShovel } from 'react-icons/tb';
 import { FaUmbrellaBeach } from 'react-icons/fa';
 
-const Determination = (props) => {
+export default function Determination(props) {
   const { status } = props;
 
   return (
@@ -13,5 +13,3 @@ const Determination = (props) => {
     </div>
   )
 }
-
-export default Determination
