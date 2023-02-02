@@ -7,7 +7,7 @@ export default function WeatherCard(props) {
   const {date, format_date, high, low, total_snow, total_rain, timeframes} = props;
 
   return (
-    <div className="flex flex-col min-width-full w-96 h-full p-4 mx-4 text-white bg-sky-400 font-bold drop-shadow-md rounded-lg">
+    <div className="flex flex-col h-full p-4 mx-4 text-white bg-sky-400 font-bold drop-shadow-md rounded-lg">
       <div className="flex flex-row place-content-between items-end py-3">
         <img src={selectWeatherIcon(timeframes.map(period => period.wx_code))} alt="weather icon" className="w-24 rounded-full border-4 border-sky-800"/>
         <div>
