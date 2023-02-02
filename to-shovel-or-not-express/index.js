@@ -7,8 +7,10 @@ var cors = require('cors')
 app.use(cors())
 
 var corsOptions = {
+  // url of localhost react
+  // origin: 'http://localhost:3000',
   // url of saltyshovel react app
-  origin: 'http://localhost:3000',
+  origin: 'https://salty-shovel.vercel.app',
   optionsSuccessStatus: 200
 }
 
