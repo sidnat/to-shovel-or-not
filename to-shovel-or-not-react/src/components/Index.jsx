@@ -20,6 +20,8 @@ export default function Index() {
       })
   }
 
+  // refactor, make a single express server call with location input, return location data for cookies, and weather data
+  
   // gets weather data for longitude and latitude
   useEffect(() => {
     threeDayForecast(cookies.coordinates)
