@@ -1,5 +1,5 @@
 const axios = require('axios')
-const { convertDateToWeekday } = require('./date-to-weekday')
+const { convertDateToWeekday } = require('../utils/date-to-weekday')
 require('dotenv').config()
 
 // hardcoded location example: Toronto
