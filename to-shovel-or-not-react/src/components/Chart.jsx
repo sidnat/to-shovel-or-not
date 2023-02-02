@@ -9,8 +9,8 @@ export default function Chart(props) {
         <AreaChart 
           data={data}           
           margin={{
-            right: 20,
-            left: -20,
+            right: 25,
+            left: -10,
             bottom: 0,
           }}>
           <Legend verticalAlign="top" height={32} align={"right"} iconType={"circle"}/>
