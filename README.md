@@ -1,7 +1,9 @@
 # Salty Shovel
 
-Salty Shovel is a site designed to lets a User know if they need to Shovel and/or Salt. Salty Shovel displays weather data for Toronto, Canada as default.
+https://salty-shovel.vercel.app/
 
+Salty Shovel is a site designed to lets a User know if they need to Shovel and/or Salt. Salty Shovel displays weather data for Toronto, Canada as default.
+https://salty-shovel.vercel.app/
 Salty Shovel also takes in user provided location data in the form of:
 - Postal Code
 - City (if there are no global duplicates)
