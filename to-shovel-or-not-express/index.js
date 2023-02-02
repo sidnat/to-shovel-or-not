@@ -5,17 +5,12 @@ const { threeDayForecast } = require('./fetches/weather-api-axios')
 const { getLongLat } = require('./fetches/location-api-axios')
 var cors = require('cors')
 app.use(cors())
-app.use(express.static('public'))
 
 var corsOptions = {
   // url of saltyshovel react app
   origin: 'http://localhost:3000',
   optionsSuccessStatus: 200
 }
-
-app.get('/', (req, res) => {
-  res.sendFile('index.html', {root: path.join(__dirname, 'public')});
-})
 
 // weather data route
 app.get("/getForecast", [cors(corsOptions)], async (req, res) => {
