@@ -1,11 +1,12 @@
 import React from "react";
 import WeatherCard from "./WeatherCard";
+import Loading from "./Loading";
 import Determination from "./Determination";
 import groupWeatherInPairs from "../selectors/group-weather-in-pairs";
 import determineOutcome from "../helpers/determine-outcome";
 
 export default function Body(props) {
-  const { weatherData } = props;
+  const { weatherData, isLoading } = props;
 
   // Creates the WeatherCard components.
   function drawWeatherCards() {
@@ -37,10 +38,10 @@ export default function Body(props) {
   return (
     <div className="flex flex-col h-full bg-sky-800">
       <div className="flex flex-row h-2/3 py-4 justify-center">
-        {drawWeatherCards()}
+        {isLoading ? <Loading /> : drawWeatherCards()}
       </div>
       <div className="flex flex-row h-1/3 w-px-96 pb-4 justify-center text-white font-sans font-bold text-lg">
-        {drawDeterminations()}
+        {!isLoading && drawDeterminations()}
       </div>
     </div>
   )

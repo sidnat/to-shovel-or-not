@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { getLongLatAndLabel } from "../utils/axiosCalls";
 
 export default function Header(props) {
   const { onSubmit, locationName } = props;
@@ -16,13 +15,8 @@ export default function Header(props) {
   // handles user submitted location
   const handleSubmit = (e) => {
     e.preventDefault()
-    // axios call function to backend to retrieve coordinates and location label (Toronto, ON, Canada)
-    getLongLatAndLabel(locationInput)
-      .then(locationData => {
-        // sends returned axios call location data to onSubmit prop function which updates cookies
-        onSubmit(locationData.coordinates, locationData.location)
-        setLocationInput('')
-      })
+    onSubmit(locationInput)
+      .then(() => setLocationInput(''))
   }
 
   return (
